@@ -1,0 +1,20 @@
+def dodaj_do_notatki(nazwa_pliku, tekst):
+    with open(nazwa_pliku, 'a') as plik:
+        plik.write(tekst + '\n')
+
+def utworz_notatke(nazwa_pliku):
+    with open(nazwa_pliku, 'w') as plik:
+        pass  # Pusty plik zostanie utworzony
+
+# Przykład użycia
+nazwa_pliku = input("Podaj nazwę pliku dla notatek: ")
+
+utworz_notatke(nazwa_pliku)
+
+while True:
+    linia = input("Wpisz tekst do notatki (wpisz 'koniec', aby zakończyć): ")
+    if linia.lower() == 'koniec':
+        break
+    dodaj_do_notatki(nazwa_pliku, linia)
+
+print("Notatka została zapisana w pliku", nazwa_pliku)
